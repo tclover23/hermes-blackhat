@@ -1,13 +1,9 @@
 # HERMES BLACKHAT
 
-Elite Offensive AI by Devilishcode
+Your custom HUD + Groq LLM
 
-## Login
-- Username: `Devilishcode`
-- Password: `Hermes`
+Deploy on Railway:
+1. Add Environment Variable GROQ_API_KEY
+2. Deploy
 
-## Deploy
-1. Deploy on Railway or Render
-2. Add Environment Variable: `GROQ_API_KEY`
-
-Your HTML HUD is in `index.html`
+Login not required in this version (can be added)
