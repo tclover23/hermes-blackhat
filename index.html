@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HERMES BLACK HAT HUD</title>
+  <style>
+    body { margin:0; background:#000; color:#f00; font-family:'Courier New',monospace; height:100vh; padding:1rem; }
+    #log { height:calc(100vh - 3rem); overflow-y:auto; white-space:pre-wrap; }
+    #input { width:100%; background:transparent; border:none; color:#f00; font:inherit; outline:none; }
+  </style>
+</head>
+<body>
+  <div id="log">HERMES ONLINE. SELECT MODE.</div>
+  <select id="mode" onchange="updateMode()">
+    <option value="local">LOCAL OLLAMA (FREE)</option>
+    <option value="cloud">CLOUD HOSTED (PAID)</option>
+  </select>
+  <input id="input" autofocus placeholder="Enter directive..."/>
+  <script>
+    const log = document.getElementById('log');
+    const input = document.getElementById('input');
+    let mode = 'local';
+    function updateMode() {
+      mode = document.getElementById('mode').value;
+      log.innerHTML += `\n[MODE] ${mode.toUpperCase()}`;
+    }
+    input.onkeypress = e => {
+      if (e.key === 'Enter') {
+        const cmd = input.value.trim();
+        log.innerHTML += `\n> ${cmd}`;
+        input.value = '';
+        log.innerHTML += `\n[HERMES] Executed on ${mode}.`;
+        log.scrollTop = log.scrollHeight;
+      }
+    };
+  </script>
+</body>
+</html>
